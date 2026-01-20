@@ -182,3 +182,42 @@ console.log(myModule.subtract(320,100));
 console.log(myModule.multiply(5,7));
 console.log(myModule.divide(100,10));
 console.log(add(32,50));                //this add will not have naming conflict
+
+
+// 3 kinds of prototypal inheritance
+console.log("3 kinds of prototypal inheritance");
+console.log("1. Delegation/Differential Inheritance");
+//------   1. Delegation/ Differential Inheritance  ----------------
+// Objects that serves as a base for another object
+//   objects that inherit another object, gets a reference to its prototype
+//  accessing a property will result in first checking its own obj and then it
+// checks the [[prototype]] and so on up the protoype chain until 
+// Object.prototype(root of method delegation for most objects)
+// Method delegation can help preserve memory resources as only one copy of each method
+// is needed and shared by its instances instead of defining them in each instances
+// some ways to implement
+// 1. using class by putting in the method as methodName(){statements;} below the 
+//     class constructor.
+//      However it is said that there are problems with class inheritance in JS especially
+//      when we extend classes, its not recommended
+// 2. Using constructor function and setting
+//    ConstructorName.prototype.methodName = function(){statement;}
+// 3. using Factory functions and Object.create()
+//      create a proto obj const proto={method(){}}
+//      const greeter = (name) => Object.assign(Object.create(proto), {name});
+//      const newInstance = greeter("SomeName");
+//      newInstance.method() can now be called 
+
+//      to avoid property/method delegation, set prototype to 'null'
+//      by using Object.create(null);
+
+// DISADVANTAGES of delegation is not good for storing state
+//      If states are stored as objs/arrays, mutating any member of said 
+//      arr/obj will mutate every instance that shares the prototype
+
+//      to preserve instance safety, each obj must have a copy of the state
+
+
+// the other two inheritance can be seen here : https://medium.com/javascript-scene/3-different-kinds-of-prototypal-inheritance-es6-edition-32d777fa16c9
+
+//  FAVOR COMPOSITION OVER INHERITANCE !!!!!!
