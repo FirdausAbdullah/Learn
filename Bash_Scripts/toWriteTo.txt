@@ -1,0 +1,2 @@
+This is a file with some content.
+This is a new line to be written.
