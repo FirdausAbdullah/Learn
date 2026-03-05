@@ -7,6 +7,8 @@
 echo "Today is " `date`
 	#Comment in bash
 	#receive user input, store it in the_path
+
+	# -e tells echo to process backslash characters
 echo -e "\nEnter the path to directory"
 read the_path
  	
